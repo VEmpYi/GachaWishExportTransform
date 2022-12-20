@@ -410,7 +410,6 @@ namespace GachaWishExportTransform
                 return true;
             }
         }
-
         /// <summary>
         /// 将获取到的 JSON 格式对应生成 Yunzai 格式的 JSON 格式
         /// </summary>
@@ -442,7 +441,6 @@ namespace GachaWishExportTransform
 
             return yzDI;
         }
-
         /// <summary>
         /// 将文件加载到字典及文件列表中
         /// </summary>
@@ -527,7 +525,7 @@ namespace GachaWishExportTransform
                 labelFileJSONLoaded.Text = "未加载";
                 labelConverted.Text = "未转换";
             }
-
+            CheckStatusFlag_FileReady();
         }
 
         /// <summary>
