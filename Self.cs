@@ -201,7 +201,7 @@ namespace GachaWishExportTransform
                 // 若对应的JSON对象不存在则生成对象
                 if (!CheckFileJsonExist(fileName))
                 {
-                    if (!readFile2Json(fileName))
+                    if (!await readFile2Json(fileName))
                     {
                         statusFlag["Converting"] = false;
                         return false;
@@ -213,9 +213,9 @@ namespace GachaWishExportTransform
                 // 尝试构建账号输出目录
                 string userDirectory = "";
                 // 检查文件内容
-                if(jsonFileContent["user_id"] != null)
+                if (jsonFileContent["user_id"] != null)
                 {
-                    if(jsonFileContent["uid"] != null)
+                    if (jsonFileContent["uid"] != null)
                     {
                         // 根据内容及 Yunzai 的数据格式创建文件夹
                         userDirectory = ".\\FilesOutput\\" + jsonFileContent["user_id"].ToString() + "\\" + jsonFileContent["uid"].ToString();
@@ -272,6 +272,10 @@ namespace GachaWishExportTransform
                                             // 根据祈愿物品类型进行分类
                                             switch (itemDI["gacha_type"].ToString())
                                             {
+                                                case "100":
+                                                    yzConvertContent["Others"].Add(Convert2YunzaiData(itemDI, jsonFileContent["uid"].ToString()));
+                                                    ShowMsg("文件[" + fileName + "]中[gacha_type]发现[新手祈愿]，已添加至文件 Others.json", msgLevel.WARNING);
+                                                    break;
                                                 case "200":
                                                     // yz200All.Add(Convert2YunzaiData(item, jsonFileContent["uid"].ToString()));
                                                     yzConvertContent["200"].Add(Convert2YunzaiData(itemDI, jsonFileContent["uid"].ToString()));
@@ -366,7 +370,7 @@ namespace GachaWishExportTransform
         /// </summary>
         /// <param name="fileName">要读入并转换的文件名</param>
         /// <returns>返回读取成功情况</returns>
-        private bool readFile2Json(string fileName)
+        async private Task<bool> readFile2Json(string fileName)
         {
             try
             {
@@ -477,11 +481,20 @@ namespace GachaWishExportTransform
                 GetJsonString2LabelTxt(filesPathAndName[currentFileName].fileContent["uid"], labelCurrentFileUID);
 
                 // 加载该文件的角色祈愿、武器祈愿、标准祈愿和新手祈愿
-                GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["角色祈愿"], labelCurrentFileCharacterEventWish);
-                GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["武器祈愿"], labelCurrentFileWeaponEventWish);
-                GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["常驻祈愿"], labelCurrentFileStandardWish);
-                GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["新手祈愿"], labelCurrentFileNoviceWish);
-
+                try
+                {
+                    GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["角色祈愿"], labelCurrentFileCharacterEventWish);
+                    GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["武器祈愿"], labelCurrentFileWeaponEventWish);
+                    GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["常驻祈愿"], labelCurrentFileStandardWish);
+                    GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["新手祈愿"], labelCurrentFileNoviceWish);
+                }
+                catch
+                {
+                    ShowMsg("文件[" + currentFileName + "]读取错误，已从列表中删除", msgLevel.ERROR);
+                    listBoxFileNames.Items.RemoveAt(listBoxFileNames.Items.IndexOf(currentFileName));
+                    filesPathAndName.Remove(currentFileName);
+                    return;
+                }
                 // 生成 Yunzai 文件读取目录
                 string userDirectory = ".\\FilesOutput\\" + filesPathAndName[currentFileName].fileContent["user_id"].ToString() + "\\" + filesPathAndName[currentFileName].fileContent["uid"].ToString();
                 // 设定读取到的祈愿类型数量
@@ -507,8 +520,6 @@ namespace GachaWishExportTransform
                         labelConverted.Text = "部分转换";
                         break;
                 }
-                ShowMsg("文件读取完成");
-
             }
             else
             {

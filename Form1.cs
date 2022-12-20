@@ -5,8 +5,8 @@ namespace GachaWishExportTransform
         public convertTool()
         {
             InitializeComponent();
-            bool initStatus =  InitProgram();
-            if(!initStatus)
+            bool initStatus = InitProgram();
+            if (!initStatus)
             {
                 MessageBox.Show("程序初始化错误！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 System.Environment.Exit(1);
@@ -150,7 +150,7 @@ namespace GachaWishExportTransform
             {
                 ShowMsg("已经启动文件转换，请稍后");
             }
-            
+
         }
 
         /// <summary>
@@ -177,12 +177,12 @@ namespace GachaWishExportTransform
                 }
             }
             catch { ShowMsg("文件加载失败", msgLevel.WARNING); }
-            
+
         }
 
-        private void listBoxFileNames_MouseDoubleClick(object sender, MouseEventArgs e)
+        private async void listBoxFileNames_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if(listBoxFileNames.SelectedIndex == -1)
+            if (listBoxFileNames.SelectedIndex == -1)
             {
                 return;
             }
@@ -190,17 +190,18 @@ namespace GachaWishExportTransform
             {
                 if (!CheckFileJsonExist(listBoxFileNames.Text))
                 {
-                    if (readFile2Json(listBoxFileNames.Text))
+                    if (await Task.Run(() => readFile2Json(listBoxFileNames.Text)))
                     {
-                        CheckGUICurrentFileInformation();
+                        Task.Run(() => { CheckGUICurrentFileInformation(); ShowMsg("文件读取完成"); });
+
                     }
                 }
             }
         }
 
-        private void btnConvertSelectedFile_Click(object sender, EventArgs e)
+        private async void btnConvertSelectedFile_Click(object sender, EventArgs e)
         {
-            ConvertSingleFile(listBoxFileNames.Text);
+            await ConvertSingleFile(listBoxFileNames.Text);
             CheckGUICurrentFileInformation();
         }
     }

@@ -233,10 +233,10 @@
             this.groupCurrentFileTitle.Controls.Add(this.labelCurrentFile301);
             this.groupCurrentFileTitle.Controls.Add(this.labelCurrentFile200);
             this.groupCurrentFileTitle.Controls.Add(this.labelCurrentFileNoviceWish);
-            this.groupCurrentFileTitle.Controls.Add(this.labelDescribeCurrentFileNoviceWish);
             this.groupCurrentFileTitle.Controls.Add(this.labelDescribeCurrentFile302);
-            this.groupCurrentFileTitle.Controls.Add(this.labelDescribeCurrentFile200);
+            this.groupCurrentFileTitle.Controls.Add(this.labelDescribeCurrentFileNoviceWish);
             this.groupCurrentFileTitle.Controls.Add(this.labelDescribeCurrentFile301);
+            this.groupCurrentFileTitle.Controls.Add(this.labelDescribeCurrentFile200);
             this.groupCurrentFileTitle.Controls.Add(this.labelCurrentFileStandardWish);
             this.groupCurrentFileTitle.Controls.Add(this.labelCurrentFileWeaponEventWish);
             this.groupCurrentFileTitle.Controls.Add(this.labelDescribeCurrentFileWeaponEventWish);
@@ -288,7 +288,7 @@
             // labelCurrentFile302
             // 
             this.labelCurrentFile302.AutoSize = true;
-            this.labelCurrentFile302.Location = new System.Drawing.Point(328, 125);
+            this.labelCurrentFile302.Location = new System.Drawing.Point(328, 105);
             this.labelCurrentFile302.Name = "labelCurrentFile302";
             this.labelCurrentFile302.Size = new System.Drawing.Size(37, 20);
             this.labelCurrentFile302.TabIndex = 33;
@@ -297,7 +297,7 @@
             // labelCurrentFile301
             // 
             this.labelCurrentFile301.AutoSize = true;
-            this.labelCurrentFile301.Location = new System.Drawing.Point(329, 105);
+            this.labelCurrentFile301.Location = new System.Drawing.Point(328, 85);
             this.labelCurrentFile301.Name = "labelCurrentFile301";
             this.labelCurrentFile301.Size = new System.Drawing.Size(37, 20);
             this.labelCurrentFile301.TabIndex = 32;
@@ -306,7 +306,7 @@
             // labelCurrentFile200
             // 
             this.labelCurrentFile200.AutoSize = true;
-            this.labelCurrentFile200.Location = new System.Drawing.Point(329, 85);
+            this.labelCurrentFile200.Location = new System.Drawing.Point(328, 125);
             this.labelCurrentFile200.Name = "labelCurrentFile200";
             this.labelCurrentFile200.Size = new System.Drawing.Size(37, 20);
             this.labelCurrentFile200.TabIndex = 31;
@@ -315,7 +315,7 @@
             // labelCurrentFileNoviceWish
             // 
             this.labelCurrentFileNoviceWish.AutoSize = true;
-            this.labelCurrentFileNoviceWish.Location = new System.Drawing.Point(74, 125);
+            this.labelCurrentFileNoviceWish.Location = new System.Drawing.Point(74, 65);
             this.labelCurrentFileNoviceWish.Name = "labelCurrentFileNoviceWish";
             this.labelCurrentFileNoviceWish.Size = new System.Drawing.Size(37, 20);
             this.labelCurrentFileNoviceWish.TabIndex = 30;
@@ -324,7 +324,7 @@
             // labelDescribeCurrentFileNoviceWish
             // 
             this.labelDescribeCurrentFileNoviceWish.AutoSize = true;
-            this.labelDescribeCurrentFileNoviceWish.Location = new System.Drawing.Point(6, 125);
+            this.labelDescribeCurrentFileNoviceWish.Location = new System.Drawing.Point(6, 65);
             this.labelDescribeCurrentFileNoviceWish.Name = "labelDescribeCurrentFileNoviceWish";
             this.labelDescribeCurrentFileNoviceWish.Size = new System.Drawing.Size(84, 20);
             this.labelDescribeCurrentFileNoviceWish.TabIndex = 29;
@@ -333,7 +333,7 @@
             // labelDescribeCurrentFile302
             // 
             this.labelDescribeCurrentFile302.AutoSize = true;
-            this.labelDescribeCurrentFile302.Location = new System.Drawing.Point(250, 125);
+            this.labelDescribeCurrentFile302.Location = new System.Drawing.Point(250, 105);
             this.labelDescribeCurrentFile302.Name = "labelDescribeCurrentFile302";
             this.labelDescribeCurrentFile302.Size = new System.Drawing.Size(84, 20);
             this.labelDescribeCurrentFile302.TabIndex = 28;
@@ -342,7 +342,7 @@
             // labelDescribeCurrentFile200
             // 
             this.labelDescribeCurrentFile200.AutoSize = true;
-            this.labelDescribeCurrentFile200.Location = new System.Drawing.Point(250, 85);
+            this.labelDescribeCurrentFile200.Location = new System.Drawing.Point(250, 125);
             this.labelDescribeCurrentFile200.Name = "labelDescribeCurrentFile200";
             this.labelDescribeCurrentFile200.Size = new System.Drawing.Size(84, 20);
             this.labelDescribeCurrentFile200.TabIndex = 27;
@@ -351,7 +351,7 @@
             // labelDescribeCurrentFile301
             // 
             this.labelDescribeCurrentFile301.AutoSize = true;
-            this.labelDescribeCurrentFile301.Location = new System.Drawing.Point(250, 105);
+            this.labelDescribeCurrentFile301.Location = new System.Drawing.Point(250, 85);
             this.labelDescribeCurrentFile301.Name = "labelDescribeCurrentFile301";
             this.labelDescribeCurrentFile301.Size = new System.Drawing.Size(84, 20);
             this.labelDescribeCurrentFile301.TabIndex = 26;
@@ -360,7 +360,7 @@
             // labelCurrentFileStandardWish
             // 
             this.labelCurrentFileStandardWish.AutoSize = true;
-            this.labelCurrentFileStandardWish.Location = new System.Drawing.Point(74, 105);
+            this.labelCurrentFileStandardWish.Location = new System.Drawing.Point(74, 125);
             this.labelCurrentFileStandardWish.Name = "labelCurrentFileStandardWish";
             this.labelCurrentFileStandardWish.Size = new System.Drawing.Size(37, 20);
             this.labelCurrentFileStandardWish.TabIndex = 23;
@@ -369,7 +369,7 @@
             // labelCurrentFileWeaponEventWish
             // 
             this.labelCurrentFileWeaponEventWish.AutoSize = true;
-            this.labelCurrentFileWeaponEventWish.Location = new System.Drawing.Point(74, 85);
+            this.labelCurrentFileWeaponEventWish.Location = new System.Drawing.Point(74, 105);
             this.labelCurrentFileWeaponEventWish.Name = "labelCurrentFileWeaponEventWish";
             this.labelCurrentFileWeaponEventWish.Size = new System.Drawing.Size(37, 20);
             this.labelCurrentFileWeaponEventWish.TabIndex = 25;
@@ -378,7 +378,7 @@
             // labelDescribeCurrentFileWeaponEventWish
             // 
             this.labelDescribeCurrentFileWeaponEventWish.AutoSize = true;
-            this.labelDescribeCurrentFileWeaponEventWish.Location = new System.Drawing.Point(6, 85);
+            this.labelDescribeCurrentFileWeaponEventWish.Location = new System.Drawing.Point(6, 105);
             this.labelDescribeCurrentFileWeaponEventWish.Name = "labelDescribeCurrentFileWeaponEventWish";
             this.labelDescribeCurrentFileWeaponEventWish.Size = new System.Drawing.Size(84, 20);
             this.labelDescribeCurrentFileWeaponEventWish.TabIndex = 24;
@@ -387,7 +387,7 @@
             // labelCurrentFileCharacterEventWish
             // 
             this.labelCurrentFileCharacterEventWish.AutoSize = true;
-            this.labelCurrentFileCharacterEventWish.Location = new System.Drawing.Point(74, 65);
+            this.labelCurrentFileCharacterEventWish.Location = new System.Drawing.Point(74, 85);
             this.labelCurrentFileCharacterEventWish.Name = "labelCurrentFileCharacterEventWish";
             this.labelCurrentFileCharacterEventWish.Size = new System.Drawing.Size(37, 20);
             this.labelCurrentFileCharacterEventWish.TabIndex = 20;
@@ -396,7 +396,7 @@
             // labelDescribeCurrentFileStandardWish
             // 
             this.labelDescribeCurrentFileStandardWish.AutoSize = true;
-            this.labelDescribeCurrentFileStandardWish.Location = new System.Drawing.Point(6, 105);
+            this.labelDescribeCurrentFileStandardWish.Location = new System.Drawing.Point(6, 125);
             this.labelDescribeCurrentFileStandardWish.Name = "labelDescribeCurrentFileStandardWish";
             this.labelDescribeCurrentFileStandardWish.Size = new System.Drawing.Size(84, 20);
             this.labelDescribeCurrentFileStandardWish.TabIndex = 15;
@@ -405,7 +405,7 @@
             // labelDescribeCurrentFileCharacterEventWish
             // 
             this.labelDescribeCurrentFileCharacterEventWish.AutoSize = true;
-            this.labelDescribeCurrentFileCharacterEventWish.Location = new System.Drawing.Point(6, 65);
+            this.labelDescribeCurrentFileCharacterEventWish.Location = new System.Drawing.Point(6, 85);
             this.labelDescribeCurrentFileCharacterEventWish.Name = "labelDescribeCurrentFileCharacterEventWish";
             this.labelDescribeCurrentFileCharacterEventWish.Size = new System.Drawing.Size(84, 20);
             this.labelDescribeCurrentFileCharacterEventWish.TabIndex = 19;
