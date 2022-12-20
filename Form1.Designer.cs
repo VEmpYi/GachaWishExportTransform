@@ -45,6 +45,17 @@
             this.labelCurrentFileName = new System.Windows.Forms.Label();
             this.groupFileList = new System.Windows.Forms.GroupBox();
             this.groupCurrentFileTitle = new System.Windows.Forms.GroupBox();
+            this.labelDescribeConvert = new System.Windows.Forms.Label();
+            this.labelConverted = new System.Windows.Forms.Label();
+            this.labelDescribeConverted = new System.Windows.Forms.Label();
+            this.labelCurrentFile302 = new System.Windows.Forms.Label();
+            this.labelCurrentFile301 = new System.Windows.Forms.Label();
+            this.labelCurrentFile200 = new System.Windows.Forms.Label();
+            this.labelCurrentFileNoviceWish = new System.Windows.Forms.Label();
+            this.labelDescribeCurrentFileNoviceWish = new System.Windows.Forms.Label();
+            this.labelDescribeCurrentFile302 = new System.Windows.Forms.Label();
+            this.labelDescribeCurrentFile200 = new System.Windows.Forms.Label();
+            this.labelDescribeCurrentFile301 = new System.Windows.Forms.Label();
             this.labelCurrentFileStandardWish = new System.Windows.Forms.Label();
             this.labelCurrentFileWeaponEventWish = new System.Windows.Forms.Label();
             this.labelDescribeCurrentFileWeaponEventWish = new System.Windows.Forms.Label();
@@ -57,17 +68,6 @@
             this.labelDescribeCurrentFileQQ = new System.Windows.Forms.Label();
             this.labelFileJSONLoaded = new System.Windows.Forms.Label();
             this.labelDescribeLoadedFile = new System.Windows.Forms.Label();
-            this.labelDescribeCurrentFile301 = new System.Windows.Forms.Label();
-            this.labelDescribeCurrentFile200 = new System.Windows.Forms.Label();
-            this.labelDescribeCurrentFile302 = new System.Windows.Forms.Label();
-            this.labelDescribeCurrentFileNoviceWish = new System.Windows.Forms.Label();
-            this.labelCurrentFileNoviceWish = new System.Windows.Forms.Label();
-            this.labelCurrentFile200 = new System.Windows.Forms.Label();
-            this.labelCurrentFile301 = new System.Windows.Forms.Label();
-            this.labelCurrentFile302 = new System.Windows.Forms.Label();
-            this.labelDescribeConverted = new System.Windows.Forms.Label();
-            this.labelConverted = new System.Windows.Forms.Label();
-            this.labelDescribeConvert = new System.Windows.Forms.Label();
             this.btnConvertSelectedFile = new System.Windows.Forms.Button();
             this.listBoxFileNamesMenuStrip.SuspendLayout();
             this.groupFileList.SuspendLayout();
@@ -258,6 +258,105 @@
             this.groupCurrentFileTitle.TabStop = false;
             this.groupCurrentFileTitle.Text = "当前文件信息";
             // 
+            // labelDescribeConvert
+            // 
+            this.labelDescribeConvert.AutoSize = true;
+            this.labelDescribeConvert.Location = new System.Drawing.Point(146, 95);
+            this.labelDescribeConvert.Name = "labelDescribeConvert";
+            this.labelDescribeConvert.Size = new System.Drawing.Size(101, 20);
+            this.labelDescribeConvert.TabIndex = 36;
+            this.labelDescribeConvert.Text = "---转换后--->";
+            // 
+            // labelConverted
+            // 
+            this.labelConverted.AutoSize = true;
+            this.labelConverted.Location = new System.Drawing.Point(329, 65);
+            this.labelConverted.Name = "labelConverted";
+            this.labelConverted.Size = new System.Drawing.Size(54, 20);
+            this.labelConverted.TabIndex = 35;
+            this.labelConverted.Text = "未转换";
+            // 
+            // labelDescribeConverted
+            // 
+            this.labelDescribeConverted.AutoSize = true;
+            this.labelDescribeConverted.Location = new System.Drawing.Point(250, 65);
+            this.labelDescribeConverted.Name = "labelDescribeConverted";
+            this.labelDescribeConverted.Size = new System.Drawing.Size(84, 20);
+            this.labelDescribeConverted.TabIndex = 34;
+            this.labelDescribeConverted.Text = "转换文件：";
+            // 
+            // labelCurrentFile302
+            // 
+            this.labelCurrentFile302.AutoSize = true;
+            this.labelCurrentFile302.Location = new System.Drawing.Point(328, 125);
+            this.labelCurrentFile302.Name = "labelCurrentFile302";
+            this.labelCurrentFile302.Size = new System.Drawing.Size(37, 20);
+            this.labelCurrentFile302.TabIndex = 33;
+            this.labelCurrentFile302.Text = "0 条";
+            // 
+            // labelCurrentFile301
+            // 
+            this.labelCurrentFile301.AutoSize = true;
+            this.labelCurrentFile301.Location = new System.Drawing.Point(329, 105);
+            this.labelCurrentFile301.Name = "labelCurrentFile301";
+            this.labelCurrentFile301.Size = new System.Drawing.Size(37, 20);
+            this.labelCurrentFile301.TabIndex = 32;
+            this.labelCurrentFile301.Text = "0 条";
+            // 
+            // labelCurrentFile200
+            // 
+            this.labelCurrentFile200.AutoSize = true;
+            this.labelCurrentFile200.Location = new System.Drawing.Point(329, 85);
+            this.labelCurrentFile200.Name = "labelCurrentFile200";
+            this.labelCurrentFile200.Size = new System.Drawing.Size(37, 20);
+            this.labelCurrentFile200.TabIndex = 31;
+            this.labelCurrentFile200.Text = "0 条";
+            // 
+            // labelCurrentFileNoviceWish
+            // 
+            this.labelCurrentFileNoviceWish.AutoSize = true;
+            this.labelCurrentFileNoviceWish.Location = new System.Drawing.Point(74, 125);
+            this.labelCurrentFileNoviceWish.Name = "labelCurrentFileNoviceWish";
+            this.labelCurrentFileNoviceWish.Size = new System.Drawing.Size(37, 20);
+            this.labelCurrentFileNoviceWish.TabIndex = 30;
+            this.labelCurrentFileNoviceWish.Text = "0 条";
+            // 
+            // labelDescribeCurrentFileNoviceWish
+            // 
+            this.labelDescribeCurrentFileNoviceWish.AutoSize = true;
+            this.labelDescribeCurrentFileNoviceWish.Location = new System.Drawing.Point(6, 125);
+            this.labelDescribeCurrentFileNoviceWish.Name = "labelDescribeCurrentFileNoviceWish";
+            this.labelDescribeCurrentFileNoviceWish.Size = new System.Drawing.Size(84, 20);
+            this.labelDescribeCurrentFileNoviceWish.TabIndex = 29;
+            this.labelDescribeCurrentFileNoviceWish.Text = "新手祈愿：";
+            // 
+            // labelDescribeCurrentFile302
+            // 
+            this.labelDescribeCurrentFile302.AutoSize = true;
+            this.labelDescribeCurrentFile302.Location = new System.Drawing.Point(250, 125);
+            this.labelDescribeCurrentFile302.Name = "labelDescribeCurrentFile302";
+            this.labelDescribeCurrentFile302.Size = new System.Drawing.Size(84, 20);
+            this.labelDescribeCurrentFile302.TabIndex = 28;
+            this.labelDescribeCurrentFile302.Text = "武器祈愿：";
+            // 
+            // labelDescribeCurrentFile200
+            // 
+            this.labelDescribeCurrentFile200.AutoSize = true;
+            this.labelDescribeCurrentFile200.Location = new System.Drawing.Point(250, 85);
+            this.labelDescribeCurrentFile200.Name = "labelDescribeCurrentFile200";
+            this.labelDescribeCurrentFile200.Size = new System.Drawing.Size(84, 20);
+            this.labelDescribeCurrentFile200.TabIndex = 27;
+            this.labelDescribeCurrentFile200.Text = "常驻祈愿：";
+            // 
+            // labelDescribeCurrentFile301
+            // 
+            this.labelDescribeCurrentFile301.AutoSize = true;
+            this.labelDescribeCurrentFile301.Location = new System.Drawing.Point(250, 105);
+            this.labelDescribeCurrentFile301.Name = "labelDescribeCurrentFile301";
+            this.labelDescribeCurrentFile301.Size = new System.Drawing.Size(84, 20);
+            this.labelDescribeCurrentFile301.TabIndex = 26;
+            this.labelDescribeCurrentFile301.Text = "角色祈愿：";
+            // 
             // labelCurrentFileStandardWish
             // 
             this.labelCurrentFileStandardWish.AutoSize = true;
@@ -367,105 +466,6 @@
             this.labelDescribeLoadedFile.Size = new System.Drawing.Size(84, 20);
             this.labelDescribeLoadedFile.TabIndex = 13;
             this.labelDescribeLoadedFile.Text = "文件加载：";
-            // 
-            // labelDescribeCurrentFile301
-            // 
-            this.labelDescribeCurrentFile301.AutoSize = true;
-            this.labelDescribeCurrentFile301.Location = new System.Drawing.Point(250, 105);
-            this.labelDescribeCurrentFile301.Name = "labelDescribeCurrentFile301";
-            this.labelDescribeCurrentFile301.Size = new System.Drawing.Size(84, 20);
-            this.labelDescribeCurrentFile301.TabIndex = 26;
-            this.labelDescribeCurrentFile301.Text = "角色祈愿：";
-            // 
-            // labelDescribeCurrentFile200
-            // 
-            this.labelDescribeCurrentFile200.AutoSize = true;
-            this.labelDescribeCurrentFile200.Location = new System.Drawing.Point(250, 85);
-            this.labelDescribeCurrentFile200.Name = "labelDescribeCurrentFile200";
-            this.labelDescribeCurrentFile200.Size = new System.Drawing.Size(84, 20);
-            this.labelDescribeCurrentFile200.TabIndex = 27;
-            this.labelDescribeCurrentFile200.Text = "常驻祈愿：";
-            // 
-            // labelDescribeCurrentFile302
-            // 
-            this.labelDescribeCurrentFile302.AutoSize = true;
-            this.labelDescribeCurrentFile302.Location = new System.Drawing.Point(250, 125);
-            this.labelDescribeCurrentFile302.Name = "labelDescribeCurrentFile302";
-            this.labelDescribeCurrentFile302.Size = new System.Drawing.Size(84, 20);
-            this.labelDescribeCurrentFile302.TabIndex = 28;
-            this.labelDescribeCurrentFile302.Text = "武器祈愿：";
-            // 
-            // labelDescribeCurrentFileNoviceWish
-            // 
-            this.labelDescribeCurrentFileNoviceWish.AutoSize = true;
-            this.labelDescribeCurrentFileNoviceWish.Location = new System.Drawing.Point(6, 125);
-            this.labelDescribeCurrentFileNoviceWish.Name = "labelDescribeCurrentFileNoviceWish";
-            this.labelDescribeCurrentFileNoviceWish.Size = new System.Drawing.Size(84, 20);
-            this.labelDescribeCurrentFileNoviceWish.TabIndex = 29;
-            this.labelDescribeCurrentFileNoviceWish.Text = "新手祈愿：";
-            // 
-            // labelCurrentFileNoviceWish
-            // 
-            this.labelCurrentFileNoviceWish.AutoSize = true;
-            this.labelCurrentFileNoviceWish.Location = new System.Drawing.Point(74, 125);
-            this.labelCurrentFileNoviceWish.Name = "labelCurrentFileNoviceWish";
-            this.labelCurrentFileNoviceWish.Size = new System.Drawing.Size(37, 20);
-            this.labelCurrentFileNoviceWish.TabIndex = 30;
-            this.labelCurrentFileNoviceWish.Text = "0 条";
-            // 
-            // labelCurrentFile200
-            // 
-            this.labelCurrentFile200.AutoSize = true;
-            this.labelCurrentFile200.Location = new System.Drawing.Point(329, 85);
-            this.labelCurrentFile200.Name = "labelCurrentFile200";
-            this.labelCurrentFile200.Size = new System.Drawing.Size(37, 20);
-            this.labelCurrentFile200.TabIndex = 31;
-            this.labelCurrentFile200.Text = "0 条";
-            // 
-            // labelCurrentFile301
-            // 
-            this.labelCurrentFile301.AutoSize = true;
-            this.labelCurrentFile301.Location = new System.Drawing.Point(329, 105);
-            this.labelCurrentFile301.Name = "labelCurrentFile301";
-            this.labelCurrentFile301.Size = new System.Drawing.Size(37, 20);
-            this.labelCurrentFile301.TabIndex = 32;
-            this.labelCurrentFile301.Text = "0 条";
-            // 
-            // labelCurrentFile302
-            // 
-            this.labelCurrentFile302.AutoSize = true;
-            this.labelCurrentFile302.Location = new System.Drawing.Point(328, 125);
-            this.labelCurrentFile302.Name = "labelCurrentFile302";
-            this.labelCurrentFile302.Size = new System.Drawing.Size(37, 20);
-            this.labelCurrentFile302.TabIndex = 33;
-            this.labelCurrentFile302.Text = "0 条";
-            // 
-            // labelDescribeConverted
-            // 
-            this.labelDescribeConverted.AutoSize = true;
-            this.labelDescribeConverted.Location = new System.Drawing.Point(250, 65);
-            this.labelDescribeConverted.Name = "labelDescribeConverted";
-            this.labelDescribeConverted.Size = new System.Drawing.Size(84, 20);
-            this.labelDescribeConverted.TabIndex = 34;
-            this.labelDescribeConverted.Text = "转换文件：";
-            // 
-            // labelConverted
-            // 
-            this.labelConverted.AutoSize = true;
-            this.labelConverted.Location = new System.Drawing.Point(329, 65);
-            this.labelConverted.Name = "labelConverted";
-            this.labelConverted.Size = new System.Drawing.Size(54, 20);
-            this.labelConverted.TabIndex = 35;
-            this.labelConverted.Text = "未转换";
-            // 
-            // labelDescribeConvert
-            // 
-            this.labelDescribeConvert.AutoSize = true;
-            this.labelDescribeConvert.Location = new System.Drawing.Point(129, 95);
-            this.labelDescribeConvert.Name = "labelDescribeConvert";
-            this.labelDescribeConvert.Size = new System.Drawing.Size(101, 20);
-            this.labelDescribeConvert.TabIndex = 36;
-            this.labelDescribeConvert.Text = "---转换后--->";
             // 
             // btnConvertSelectedFile
             // 

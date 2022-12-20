@@ -127,13 +127,24 @@ namespace GachaWishExportTransform
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnWork_Click(object sender, EventArgs e)
+        private async void btnWork_Click(object sender, EventArgs e)
         {
             if (!statusFlag["Converting"])
             {
-                Thread convertFile = new Thread(ConvertFile);
-                convertFile.IsBackground = true;
-                convertFile.Start();
+                //Thread convertFile = new Thread(ConvertFile);
+                //convertFile.IsBackground = true;
+                //convertFile.Start();
+
+                var result = await Task<bool>.Run(() => ConvertFile());
+                // bool result = await ConvertFile();
+                if (result)
+                {
+                    ShowMsg("全部转换完成");
+                }
+                else
+                {
+                    ShowMsg("转换中存在错误", msgLevel.ERROR);
+                }
             }
             else
             {

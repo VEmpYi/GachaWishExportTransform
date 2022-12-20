@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace GachaWishExportTransform
@@ -68,7 +66,7 @@ namespace GachaWishExportTransform
             }
             catch
             {
-                ShowMsg("界面初始化失败",msgLevel.FATAL); 
+                ShowMsg("界面初始化失败", msgLevel.FATAL);
                 return false;
             }
 
@@ -159,27 +157,33 @@ namespace GachaWishExportTransform
         /// <summary>
         /// 开始转换文件
         /// </summary>
-        private void ConvertFile()
+        //private bool ConvertFile()
+        async private Task<bool> ConvertFile()
         {
             // 检查输出文件目录情况 和 检查转换准备情况
             if (!(CheckOutputDirectoryExist() & CheckReadyConvertFlag()))
-                return;
-
-            bool result = true;
+                return false;
+            //记录转换情况
+            int convertComplete = 0;
+            string totalCount = filesPathAndName.Count().ToString();
             foreach (var fileName in filesPathAndName.Keys)
             {
-                bool currentConvert = ConvertSingleFile(fileName);
-                result = result & currentConvert;
+                bool currentConvert = await ConvertSingleFile(fileName);
+                if (currentConvert)
+                {
+                    convertComplete++;
+                }
             }
             // 转换完成
             statusFlag["Converting"] = false;
-
+            ShowMsg("===转换完成，共 " + totalCount + " 个，成功 " + convertComplete + " 个===");
+            return true;
         }
         /// <summary>
         /// 用于转换单个文件
         /// </summary>
         /// <param name="filePath"></param>
-        private bool ConvertSingleFile(string fileName)
+        async private Task<bool> ConvertSingleFile(string fileName)
         {
             // 创建输出目录
             if (!CheckOutputDirectoryExist())
@@ -208,23 +212,33 @@ namespace GachaWishExportTransform
                 JObject? jsonFileContent = filesPathAndName[fileName].fileContent;
                 // 尝试构建账号输出目录
                 string userDirectory = "";
-                if (jsonFileContent["user_id"] == null)
+                // 检查文件内容
+                if(jsonFileContent["user_id"] != null)
                 {
-                    ShowMsg("缺少QQ账号，无法创建目录", msgLevel.ERROR);
-                    statusFlag["Converting"] = false;
-                    return false;
-                }
-                else if (jsonFileContent["uid"] == null)
-                {
-                    ShowMsg("缺少游戏UID，无法创建目录", msgLevel.ERROR);
-                    statusFlag["Converting"] = false;
-                    return false;
+                    if(jsonFileContent["uid"] != null)
+                    {
+                        // 根据内容及 Yunzai 的数据格式创建文件夹
+                        userDirectory = ".\\FilesOutput\\" + jsonFileContent["user_id"].ToString() + "\\" + jsonFileContent["uid"].ToString();
+                        DirectoryInfo userDirInfo = Directory.CreateDirectory(userDirectory);
+                    }
+                    else
+                    {
+                        ShowMsg("缺少游戏UID，无法创建目录，请检查文件", msgLevel.ERROR);
+                        ShowMsg("文件[" + fileName + "]读取错误，已从列表中删除", msgLevel.ERROR);
+                        listBoxFileNames.Items.RemoveAt(listBoxFileNames.Items.IndexOf(fileName));
+                        filesPathAndName.Remove(fileName);
+                        statusFlag["Converting"] = false;
+                        return false;
+                    }
                 }
                 else
                 {
-                    // 根据内容及 Yunzai 的数据格式创建文件夹
-                    userDirectory = ".\\FilesOutput\\" + jsonFileContent["user_id"].ToString() + "\\" + jsonFileContent["uid"].ToString();
-                    DirectoryInfo userDirInfo = Directory.CreateDirectory(userDirectory);
+                    ShowMsg("缺少QQ账号，无法创建目录，请检查文件", msgLevel.ERROR);
+                    ShowMsg("文件[" + fileName + "]读取错误，已从列表中删除", msgLevel.ERROR);
+                    listBoxFileNames.Items.RemoveAt(listBoxFileNames.Items.IndexOf(fileName));
+                    filesPathAndName.Remove(fileName);
+                    statusFlag["Converting"] = false;
+                    return false;
                 }
 
                 // 转换格式
@@ -306,7 +320,7 @@ namespace GachaWishExportTransform
                         }
                     }
 
-                    
+
 
                 }
                 else
@@ -416,6 +430,7 @@ namespace GachaWishExportTransform
             yzDI["count"] = "1";
             string wishGetTime = item["time"].ToString().Replace("T", " ");
             yzDI["time"] = wishGetTime;
+            yzDI["name"] = item["name"];
             yzDI["lang"] = "zh-cn";
             yzDI["item_type"] = item["item_type"];
             yzDI["rank_type"] = item["rank_type"];
@@ -466,21 +481,21 @@ namespace GachaWishExportTransform
                 GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["武器祈愿"], labelCurrentFileWeaponEventWish);
                 GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["常驻祈愿"], labelCurrentFileStandardWish);
                 GetJsonCount2LabelTxt(filesPathAndName[currentFileName].fileContent["item_list"]["新手祈愿"], labelCurrentFileNoviceWish);
-                
+
                 // 生成 Yunzai 文件读取目录
                 string userDirectory = ".\\FilesOutput\\" + filesPathAndName[currentFileName].fileContent["user_id"].ToString() + "\\" + filesPathAndName[currentFileName].fileContent["uid"].ToString();
                 // 设定读取到的祈愿类型数量
                 int convertKindNumber = 0;
                 // 查找并读取【常驻祈愿】、【角色祈愿】、【武器祈愿】数量
                 if (GetWishCountAndSet(userDirectory + "\\" + "200.json", labelCurrentFile200))
-                    convertKindNumber += 1;
+                    convertKindNumber++;
                 if (GetWishCountAndSet(userDirectory + "\\" + "301.json", labelCurrentFile301))
-                    convertKindNumber += 1;
+                    convertKindNumber++;
                 if (GetWishCountAndSet(userDirectory + "\\" + "302.json", labelCurrentFile302))
-                    convertKindNumber += 1;
+                    convertKindNumber++;
 
                 // 根据查找情况修改【转换文件】的情况
-                switch(convertKindNumber)
+                switch (convertKindNumber)
                 {
                     case 0:
                         labelConverted.Text = "未转换/未找到";
@@ -493,7 +508,7 @@ namespace GachaWishExportTransform
                         break;
                 }
                 ShowMsg("文件读取完成");
-                
+
             }
             else
             {
@@ -501,7 +516,7 @@ namespace GachaWishExportTransform
                 labelFileJSONLoaded.Text = "未加载";
                 labelConverted.Text = "未转换";
             }
-            
+
         }
 
         /// <summary>
@@ -513,7 +528,7 @@ namespace GachaWishExportTransform
         /// <returns>成功则返回 true，否则为 false</returns>
         public bool GetJsonString2LabelTxt(JToken? json, Label label, string strEnd = "")
         {
-            if(json != null)
+            if (json != null)
             {
                 label.Text = json.ToString() + strEnd;
                 return true;
@@ -585,11 +600,11 @@ namespace GachaWishExportTransform
                     modifiedLabel.Text = "未生成";
                     return false;
                 }
-                
+
             }
             catch
             {
-                ShowMsg("获取 Yunzai 祈愿失败",msgLevel.ERROR);
+                ShowMsg("获取 Yunzai 祈愿失败", msgLevel.ERROR);
                 modifiedLabel.Text = "未找到";
                 return false;
             }
