@@ -527,7 +527,6 @@ namespace GachaWishExportTransform
             }
             CheckStatusFlag_FileReady();
         }
-
         /// <summary>
         /// 将JSON文件内容输出到指定标签
         /// </summary>
@@ -646,7 +645,9 @@ namespace GachaWishExportTransform
             INFO, WARNING, ERROR, FATAL, TRACE
         }
     }
-
+    /// <summary>
+    /// 用来保存对应文件名的文件路径和JSON内容
+    /// </summary>
     public class FileInformation
     {
         public string filePath;
